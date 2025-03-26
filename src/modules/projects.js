@@ -5,15 +5,11 @@ import {createProject} from './domController'
 export {newProject}
 
 function newProject(name){
-    let projectArray = [];
     
-    
-    createProject()
-    // return{
-    //     name: name,
-    //     project: []
-    // }
+    return{
+        name: name,
+        id: crypto.randomUUID(),
+        tasks: []
+    }
 
-
-    // should also create the dom elements for the todo list
 }

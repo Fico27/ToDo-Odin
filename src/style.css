@@ -18,7 +18,7 @@ html,body{
 }
 
 .sidebar{
-    background-color: black;
+    background-color: rgb(0, 189, 31);
     grid-row: 2/ -1;
     grid-column: 0/ 1;
 }
@@ -27,4 +27,9 @@ html,body{
     background-color: aqua;
     grid-row: 2/ -1;
     grid-column: 2/ -1;
+}
+
+.todoName{
+    display: flex;
+    justify-content: space-between;
 }

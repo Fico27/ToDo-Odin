@@ -1,10 +1,11 @@
 // Controls all DOM 
-export { createProject, newProjectForm}
+export { displayProject, newProjectForm, closeProjectForm}
 import { newProject } from "./projects";
+// import {projectList} from "../index.js"
 
 
 // Creates in the .Content
-function createProject(){
+function displayProject(){
     //Create them
     const projectContainer = document.querySelector(".content")
     const divHeader = document.createElement("div")
@@ -39,3 +40,4 @@ function closeProjectForm(){
     const form = document.querySelector(".form");
     form.style.display = "none";
 }
+

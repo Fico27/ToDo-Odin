@@ -35,7 +35,7 @@ html,body{
     justify-content: space-between;
 }
 
-.new-project-class{
+.new-project-class, .new-task-class{
     width: 500px;
     height: 300px;
     display: flex;
@@ -50,12 +50,7 @@ html,body{
     border-radius: 15px;
 
 }
-.form{
-    /* position: relative;
-    background-color: black;
-    height: 100%;
-    width: 100%;
-    z-index: 9999; */
+.form, .task-form{
 
 position: fixed; /* Keeps it in place even when scrolling */
   top: 0;

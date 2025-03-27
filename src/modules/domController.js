@@ -1,5 +1,5 @@
 // Controls all DOM 
-export { displayProject, newProjectForm, closeProjectForm, projectSelector}
+export { displayProject, newProjectForm, closeProjectForm, projectSelector, newTaskForm}
 import { newProject } from "./projects";
 // import {projectList} from "../index.js"
 
@@ -36,8 +36,21 @@ function newProjectForm(){
     formClose.addEventListener('click', closeProjectForm)
 }
 
+function newTaskForm(){
+    const form = document.querySelector(".task-form");
+    const taskClose = document.querySelector(".task-form-close")
+    form.style.display = "block";
+    taskClose.addEventListener('click', closeTaskForm)
+
+}
+
 function closeProjectForm(){
     const form = document.querySelector(".form");
+    form.style.display = "none";
+}
+
+function closeTaskForm(){
+    const form = document.querySelector(".task-form");
     form.style.display = "none";
 }
 
@@ -46,6 +59,3 @@ function projectSelector(project){
     console.log(project.name)
 }
 
-// function liSelector(project) {
-//     console.log(project.name)
-// }

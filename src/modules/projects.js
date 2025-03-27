@@ -14,12 +14,12 @@ function newProject(name){
 
 }
 
-function newTask(){
+function newTask(name, date, priority){
     return {
         name: "",
         id: "",
         Date:"",
-        Priority: 2
+        priority: "2"
     }
 }
 

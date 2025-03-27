@@ -1,6 +1,6 @@
 import './style.css';
 import { newProject, } from "./modules/projects.js"
-import { newProjectForm, closeProjectForm, projectSelector} from "./modules/domController.js"
+import { newProjectForm, closeProjectForm, projectSelector, newTaskForm} from "./modules/domController.js"
 export {projectList}
 
 
@@ -12,6 +12,9 @@ let projectList = [];
 // Adds a new project
 const newProjectButton = document.querySelector('.newProjectButton');
 newProjectButton.addEventListener('click', newProjectForm);
+
+const newTaskButton = document.querySelector(".new-task-button")
+newTaskButton.addEventListener("click", newTaskForm)
 
 //
 

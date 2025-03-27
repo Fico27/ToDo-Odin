@@ -9,15 +9,28 @@
 
 <body>
     <div class="mainContainer">
-        <div class="header"></div>
+        <div class="header">
+            <h1>To Be is To DO!</h1>
+        </div>
         <div class="sidebar">
             <button class="newProjectButton">Make project</button>
 
-            <ul class = "project-list">
-                
+            <ul class="project-list">
+
             </ul>
         </div>
         <div class="content"></div>
+    </div>
+
+    <div class="form" style='display: none'>
+        <form action="#" class="new-project-class">
+            <h3>Project Name</h3>
+            <label for="new-project-name">
+                <input type="text" id = 'new-project-name' name= "new-project-name" required>
+            </label>
+            <button type="submit" class="project-form-submit">Create Project</button>
+            <button type="button" class="project-form-close">Close</button>
+        </form>
     </div>
 </body>
 

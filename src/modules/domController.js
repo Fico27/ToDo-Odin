@@ -1,5 +1,5 @@
 // Controls all DOM 
-export { createProject}
+export { createProject, newProjectForm}
 import { newProject } from "./projects";
 
 
@@ -25,7 +25,17 @@ function createProject(){
     divHeader.appendChild(h3Header)
     divHeader.appendChild(taskButton)
 
-
 }
 
 
+function newProjectForm(){
+    const form = document.querySelector(".form");
+    const formClose = document.querySelector(".project-form-close")
+    form.style.display = "block";
+    formClose.addEventListener('click', closeProjectForm)
+}
+
+function closeProjectForm(){
+    const form = document.querySelector(".form");
+    form.style.display = "none";
+}

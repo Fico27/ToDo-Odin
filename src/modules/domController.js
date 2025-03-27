@@ -1,5 +1,5 @@
 // Controls all DOM 
-export { displayProject, newProjectForm, closeProjectForm}
+export { displayProject, newProjectForm, closeProjectForm, projectSelector}
 import { newProject } from "./projects";
 // import {projectList} from "../index.js"
 
@@ -41,3 +41,11 @@ function closeProjectForm(){
     form.style.display = "none";
 }
 
+function projectSelector(project){
+    alert(`${project.name} was clicked!`)
+    console.log(project.name)
+}
+
+// function liSelector(project) {
+//     console.log(project.name)
+// }

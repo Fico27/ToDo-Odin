@@ -14,7 +14,14 @@ function newProject(name){
 
 }
 
-
+function newTask(){
+    return {
+        name: "",
+        id: "",
+        Date:"",
+        Priority: 2
+    }
+}
 
 
 

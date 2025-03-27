@@ -1,6 +1,6 @@
 import './style.css';
 import { newProject, } from "./modules/projects.js"
-import { newProjectForm, closeProjectForm} from "./modules/domController.js"
+import { newProjectForm, closeProjectForm, projectSelector} from "./modules/domController.js"
 export {projectList}
 
 
@@ -21,10 +21,11 @@ const projectSubmit = document.querySelector(".project-form-submit")
 form.addEventListener('submit', e => {
     e.preventDefault()
     
-    let projectName = document.querySelector("#new-project-name").value
-    addProject(projectName)
-    projectName = '';
+    let projectName = document.querySelector("#new-project-name")
+    addProject(projectName.value)
+    projectName.value = '';
     closeProjectForm()
+    
     console.log(projectList)
 })
 
@@ -48,6 +49,10 @@ function render(){
         const projectLI = document.createElement("li")
         projectLI.innerHTML = project.name
         projectUL.appendChild(projectLI)
+        projectLI.addEventListener('click', () => projectSelector(project))
+        
     })
 }
+
+
 

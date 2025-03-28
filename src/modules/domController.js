@@ -1,7 +1,9 @@
 // Controls all DOM 
-export { displayProject, newProjectForm, closeProjectForm, projectSelector, newTaskForm }
+export { displayProject, newProjectForm, closeProjectForm, projectSelector, newTaskForm , closeTaskForm, resetTaskDisplay}
+import {setCurrentProject, getCurrentProject, render } from "../index.js";
 import { newProject } from "./projects";
-// import {projectList} from "../index.js"
+
+
 
 const projectContainer = document.querySelector(".content")
 
@@ -29,7 +31,6 @@ function displayProject(project) {
 
 
 
-    
 }
 
 function resetTaskDisplay() {
@@ -66,8 +67,13 @@ function closeTaskForm() {
 }
 
 function projectSelector(project) {
-    // alert(`${project.name} was clicked!`)
     resetTaskDisplay()
+  
+   
+    setCurrentProject(project);
     displayProject(project)
+    render()
+    console.log("Selected:", getCurrentProject());
+   
 }
 

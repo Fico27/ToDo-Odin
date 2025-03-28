@@ -14,7 +14,7 @@ const newProjectButton = document.querySelector('.newProjectButton');
 newProjectButton.addEventListener('click', newProjectForm);
 
 const newTaskButton = document.querySelector(".new-task-button")
-newTaskButton.addEventListener("click", newTaskForm)
+// newTaskButton.addEventListener("click", newTaskForm)
 
 //
 

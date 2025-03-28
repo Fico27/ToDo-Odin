@@ -1,11 +1,12 @@
 // Controls all DOM 
-export { displayProject, newProjectForm, closeProjectForm, projectSelector, newTaskForm}
+export { displayProject, newProjectForm, closeProjectForm, projectSelector, newTaskForm }
 import { newProject } from "./projects";
 // import {projectList} from "../index.js"
 
+const projectContainer = document.querySelector(".content")
 
 // Creates in the .Content
-function displayProject(){
+function displayProject(project) {
     //Create them
     const projectContainer = document.querySelector(".content")
     const divHeader = document.createElement("div")
@@ -14,9 +15,9 @@ function displayProject(){
 
 
     // change innards
-    h3Header.innerHTML= "I fucking made this!"
+    h3Header.innerHTML = `${project.name}`
     taskButton.innerHTML = "Add ToDo"
-
+    taskButton.addEventListener('click', newTaskForm)
 
     //Class em up or ID them
     divHeader.className = "todoName"
@@ -28,15 +29,22 @@ function displayProject(){
 
 }
 
+function resetTaskDisplay() {
+    while (projectContainer.firstChild) {
+        projectContainer.removeChild(projectContainer.firstChild)
+    }
 
-function newProjectForm(){
+}
+
+
+function newProjectForm() {
     const form = document.querySelector(".form");
     const formClose = document.querySelector(".project-form-close")
     form.style.display = "block";
     formClose.addEventListener('click', closeProjectForm)
 }
 
-function newTaskForm(){
+function newTaskForm() {
     const form = document.querySelector(".task-form");
     const taskClose = document.querySelector(".task-form-close")
     form.style.display = "block";
@@ -44,18 +52,19 @@ function newTaskForm(){
 
 }
 
-function closeProjectForm(){
+function closeProjectForm() {
     const form = document.querySelector(".form");
     form.style.display = "none";
 }
 
-function closeTaskForm(){
+function closeTaskForm() {
     const form = document.querySelector(".task-form");
     form.style.display = "none";
 }
 
-function projectSelector(project){
-    alert(`${project.name} was clicked!`)
-    console.log(project.name)
+function projectSelector(project) {
+    // alert(`${project.name} was clicked!`)
+    resetTaskDisplay()
+    displayProject(project)
 }
 

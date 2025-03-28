@@ -2,7 +2,7 @@
 // It should also create a list container (ToDo list for this project). 
 // This array will be filled with toDo items (objects)
 import {createProject} from './domController'
-export {newProject}
+export {newProject, newTask}
 
 function newProject(name){
     
@@ -16,10 +16,10 @@ function newProject(name){
 
 function newTask(name, date, priority){
     return {
-        name: "",
-        id: "",
-        Date:"",
-        priority: "2"
+        name: name,
+        id: crypto.randomUUID(),
+        Date: date,
+        priority: priority
     }
 }
 

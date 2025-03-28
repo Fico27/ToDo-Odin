@@ -27,6 +27,9 @@ function displayProject(project) {
     divHeader.appendChild(h3Header)
     divHeader.appendChild(taskButton)
 
+
+
+    
 }
 
 function resetTaskDisplay() {

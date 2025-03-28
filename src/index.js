@@ -1,5 +1,5 @@
 import './style.css';
-import { newProject, } from "./modules/projects.js"
+import { newProject, newTask } from "./modules/projects.js"
 import { newProjectForm, closeProjectForm, projectSelector, newTaskForm} from "./modules/domController.js"
 export {projectList}
 
@@ -13,12 +13,13 @@ let projectList = [];
 const newProjectButton = document.querySelector('.newProjectButton');
 newProjectButton.addEventListener('click', newProjectForm);
 
-const newTaskButton = document.querySelector(".new-task-button")
+// const newTaskButton = document.querySelector(".new-task-button")
 // newTaskButton.addEventListener("click", newTaskForm)
 
 //
 
 const form = document.querySelector(".new-project-class")
+const taskForm = document.querySelector(".task-form")
 const projectSubmit = document.querySelector(".project-form-submit")
 
 form.addEventListener('submit', e => {
@@ -32,11 +33,26 @@ form.addEventListener('submit', e => {
     console.log(projectList)
 })
 
+taskForm.addEventListener('submit', (e) =>{
+    e.preventDefault()
+    const taskName = document.querySelector("#new-task-name")
+    const taskDate= document.querySelector("#new-task-date")
+    const taskPriority = document.querySelector("#new-task-priority")
+    addTask(taskName.value, taskDate.value, taskPriority.value)
+    
+})
+
+
 function addProject(name){
     const projectListItem = new newProject(name);
     projectList.push(projectListItem)
     render()
 
+}
+
+function addTask(name, date, priority){
+    const task = new newTask(name, date, priority)
+    console.log(task)
 }
 
 

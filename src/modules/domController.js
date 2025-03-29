@@ -1,7 +1,7 @@
 // Controls all DOM 
 export { displayProject, newProjectForm, closeProjectForm, projectSelector, newTaskForm , closeTaskForm, resetTaskDisplay}
 import {setCurrentProject, getCurrentProject, render } from "../index.js";
-import { newProject } from "./projects";
+
 
 
 
@@ -38,10 +38,6 @@ function resetTaskDisplay() {
         projectContainer.removeChild(projectContainer.firstChild)
     }
 
-}
-
-function resetTasks(){
-    
 }
 
 function newProjectForm() {
@@ -81,25 +77,3 @@ function projectSelector(project) {
 }
 
 
-// function createTask(task){
-//     //Create Dom Elements
-//     const newTask = document.createElement("div");
-//     const container = document.querySelector(".content");
-//     const deleteButton = document.createElement('button');
-
-//     // Add guts
-//     newTask.innerHTML = `${task.name} Due date: ${task.date} Priority: ${task.priority}`
-//     deleteButton.className = "delete-todo";
-//     deleteButton.innerHTML = "remove";
-//     deleteButton.dataset.taskId = task.id;
-
-//     //Append
-//     newTask.appendChild(deleteButton)
-//     container.appendChild(newTask)
-// }
-
-// function deleteTask(task){
-//     current = CurrentProject.tasks.filter(task => task.id !== targetId)
-
-
-// }

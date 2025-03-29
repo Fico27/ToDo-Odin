@@ -1,12 +1,12 @@
 import './style.css';
 import { newProject, newTask } from "./modules/projects.js"
-import { newProjectForm, closeProjectForm, projectSelector, newTaskForm, closeTaskForm, displayProject, resetTaskDisplay } from "./modules/domController.js"
-export { projectList, setCurrentProject, getCurrentProject , render}
+import { newProjectForm, closeProjectForm, projectSelector, closeTaskForm, displayProject, resetTaskDisplay } from "./modules/domController.js"
+export { projectList, setCurrentProject, getCurrentProject, render }
 
 
 let projectList = [];
 
-let currentProject = null; // Define here
+let currentProject = null; 
 
 function setCurrentProject(project) {
     currentProject = project;
@@ -20,11 +20,6 @@ function getCurrentProject() {
 // Adds a new project
 const newProjectButton = document.querySelector('.newProjectButton');
 newProjectButton.addEventListener('click', newProjectForm);
-
-// const newTaskButton = document.querySelector(".new-task-button")
-// newTaskButton.addEventListener("click", newTaskForm)
-
-//
 
 const form = document.querySelector(".new-project-class")
 const taskForm = document.querySelector(".task-form")
@@ -61,12 +56,9 @@ function addProject(name) {
 }
 
 function addTask(name, date, priority) {
-    // const task = new newTask(name, date, priority)
-    // console.log(task)
 
     const selectedProject = getCurrentProject();
     if (!selectedProject) {
-        console.log("No project selected! Please select a project first.");
         return;
     }
     const task = new newTask(name, date, priority);
@@ -86,7 +78,7 @@ function render() {
     while (projectUL.firstChild) {
         projectUL.removeChild(projectUL.firstChild)
     }
-    
+
 
     projectList.forEach(project => {
 
@@ -98,17 +90,16 @@ function render() {
         projectUL.appendChild(projectLI)
         projectLI.appendChild(deleteButtonProject)
         projectLI.addEventListener('click', () => projectSelector(project))
-        // console.log(deleteButtonProject.dataset.projectId)
-        deleteButtonProject.addEventListener('click', (e)=> { 
-                
+
+        deleteButtonProject.addEventListener('click', (e) => {
+            e.stopPropagation()
             projectList = projectList.filter(project => project.id !== e.target.dataset.projectId)
-            resetTaskDisplay();
-            
             render();
+            resetTaskDisplay();
         });
     })
-                
-        // deleteButton.dataset.taskId = project.id;
+
+
 
     if (currentProject) {
         currentProject.tasks.forEach(task => {
@@ -122,8 +113,8 @@ function render() {
             newTask.appendChild(deleteButton)
             container.appendChild(newTask)
 
-            deleteButton.addEventListener('click', (e)=> {
-                
+            deleteButton.addEventListener('click', (e) => {
+
                 currentProject.tasks = currentProject.tasks.filter(task => task.id !== e.target.dataset.taskId)
                 resetTaskDisplay();
                 displayProject(currentProject)

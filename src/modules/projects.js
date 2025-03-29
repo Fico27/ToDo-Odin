@@ -1,7 +1,5 @@
-// Each project should create an array in JS. 
-// It should also create a list container (ToDo list for this project). 
-// This array will be filled with toDo items (objects)
-import {createProject} from './domController'
+
+
 export {newProject, newTask}
 
 function newProject(name){
@@ -25,5 +23,4 @@ function newTask(name, date, priority){
 
 
 
-//
 

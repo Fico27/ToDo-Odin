@@ -12,20 +12,24 @@ html,body{
 }
 
 .header{
-    background-color: purple;
-    grid-row: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #247BA0;
+    grid-row: 1 / 2;
     grid-column:  1 / -1;
     text-align: center;
+    color: #FFFCFF;;
 }
 
 .sidebar{
-    background-color: rgb(0, 189, 31);
+    background-color: #CBD4C2;
     grid-row: 2/ -1;
     grid-column: 0/ 1;
 }
 
 .content{
-    background-color: aqua;
+    background-color: #C3B299;
     grid-row: 2/ -1;
     grid-column: 2/ -1;
 }
@@ -60,3 +64,45 @@ position: fixed; /* Keeps it in place even when scrolling */
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
   z-index: 9998; /* Ensures it stays on top of other elements */
 }
+
+
+ul{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+li{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content:space-between ;
+    margin: 10px 15px;
+    padding-left: 20px;
+   
+}
+
+.sidebar{
+    display: flex;;
+    flex-direction: column;
+    
+}
+.newProjectButton{
+    padding: 10px 10px;
+    margin: 1rem 1.5rem;
+    background-color: #FFFCFF;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #50514F;
+}
+
+
+/* color pallet{
+    #50514F
+    #CBD4C2
+    #FFFCFF
+    #247BA0
+    #C3B299
+} */

@@ -38,7 +38,7 @@ form.addEventListener('submit', e => {
     addProject(projectName.value)
     projectName.value = '';
     closeProjectForm()
-
+    resetTaskDisplay()
     console.log(projectList)
 })
 
@@ -91,23 +91,46 @@ function render() {
     projectList.forEach(project => {
 
         const projectLI = document.createElement("li")
+        const deleteButtonProject = document.createElement("button")
+        deleteButtonProject.innerHTML = "Delete"
+        deleteButtonProject.dataset.projectId = project.id
         projectLI.innerHTML = project.name
         projectUL.appendChild(projectLI)
+        projectLI.appendChild(deleteButtonProject)
         projectLI.addEventListener('click', () => projectSelector(project))
-
+        // console.log(deleteButtonProject.dataset.projectId)
+        deleteButtonProject.addEventListener('click', (e)=> { 
+                
+            projectList = projectList.filter(project => project.id !== e.target.dataset.projectId)
+            resetTaskDisplay();
+            
+            render();
+        });
     })
-        
+                
+        // deleteButton.dataset.taskId = project.id;
 
     if (currentProject) {
         currentProject.tasks.forEach(task => {
             const newTask = document.createElement("div")
             const container = document.querySelector(".content");
-
-            newTask.innerHTML = task.name;
+            const deleteButton = document.createElement('button')
+            deleteButton.className = "delete-todo"
+            deleteButton.innerHTML = "remove"
+            deleteButton.dataset.taskId = task.id;
+            newTask.innerHTML = `${task.name} Due date: ${task.date} Priority: ${task.priority}`
+            newTask.appendChild(deleteButton)
             container.appendChild(newTask)
+
+            deleteButton.addEventListener('click', (e)=> {
+                
+                currentProject.tasks = currentProject.tasks.filter(task => task.id !== e.target.dataset.taskId)
+                resetTaskDisplay();
+                displayProject(currentProject)
+                render();
+            });
         })
     }
 
 }
-
 

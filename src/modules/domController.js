@@ -40,6 +40,9 @@ function resetTaskDisplay() {
 
 }
 
+function resetTasks(){
+    
+}
 
 function newProjectForm() {
     const form = document.querySelector(".form");
@@ -77,3 +80,26 @@ function projectSelector(project) {
    
 }
 
+
+// function createTask(task){
+//     //Create Dom Elements
+//     const newTask = document.createElement("div");
+//     const container = document.querySelector(".content");
+//     const deleteButton = document.createElement('button');
+
+//     // Add guts
+//     newTask.innerHTML = `${task.name} Due date: ${task.date} Priority: ${task.priority}`
+//     deleteButton.className = "delete-todo";
+//     deleteButton.innerHTML = "remove";
+//     deleteButton.dataset.taskId = task.id;
+
+//     //Append
+//     newTask.appendChild(deleteButton)
+//     container.appendChild(newTask)
+// }
+
+// function deleteTask(task){
+//     current = CurrentProject.tasks.filter(task => task.id !== targetId)
+
+
+// }

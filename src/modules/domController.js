@@ -6,18 +6,27 @@ import {setCurrentProject, getCurrentProject, render } from "../index.js";
 
 
 const projectContainer = document.querySelector(".content")
-
+const taskContainer = document.querySelector(".task-container")
 // Creates in the .Content
 function displayProject(project) {
-    //Create them
-    const projectContainer = document.querySelector(".content")
-    const divHeader = document.createElement("div")
-    const h3Header = document.createElement("h3")
-    const taskButton = document.createElement('button')
 
+    //Create them
+    while (projectContainer.firstChild && projectContainer.firstChild !== taskContainer) {
+        projectContainer.removeChild(projectContainer.firstChild);
+    }
+    // If .task-container was removed or misplaced, reattach it
+    if (!projectContainer.contains(taskContainer)) {
+        projectContainer.appendChild(taskContainer);
+    }
+
+
+    const divHeader = document.createElement("div")
+    const h2Header = document.createElement("h2")
+    const taskButton = document.createElement('button')
+    
 
     // change innards
-    h3Header.innerHTML = `${project.name}`
+    h2Header.innerHTML = `${project.name}`
     taskButton.innerHTML = "Add ToDo"
     taskButton.addEventListener('click', newTaskForm)
 
@@ -25,8 +34,9 @@ function displayProject(project) {
     divHeader.className = "todoName"
 
     //append them
-    projectContainer.appendChild(divHeader)
-    divHeader.appendChild(h3Header)
+
+    projectContainer.insertBefore(divHeader, taskContainer); 
+    divHeader.appendChild(h2Header)
     divHeader.appendChild(taskButton)
 
 
@@ -34,10 +44,21 @@ function displayProject(project) {
 }
 
 function resetTaskDisplay() {
-    while (projectContainer.firstChild) {
-        projectContainer.removeChild(projectContainer.firstChild)
-    }
 
+    // while (taskContainer.firstChild) {
+    //     taskContainer.removeChild(taskContainer.firstChild)
+    // }
+
+    // while (projectContainer.firstChild) {
+    //     projectContainer.removeChild(projectContainer.firstChild)
+    // }
+    const taskContainer = document.querySelector(".task-container");
+    if (taskContainer) {
+        while (taskContainer.firstChild) {
+            taskContainer.removeChild(taskContainer.firstChild);
+        }
+    }
+    
 }
 
 function newProjectForm() {

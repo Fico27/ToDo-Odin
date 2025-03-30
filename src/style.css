@@ -83,6 +83,11 @@ li{
    
 }
 
+li > button{
+    background-color: #a4161a;
+    color: #FFFCFF;
+}
+
 .sidebar{
     display: flex;;
     flex-direction: column;
@@ -98,6 +103,21 @@ li{
     color: #50514F;
 }
 
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.task-container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    background-color: #FFFCFF;
+    height: 80%;
+    width: 80%;
+    align-self: center;
+}
 
 /* color pallet{
     #50514F

@@ -104,7 +104,7 @@ function render() {
     if (currentProject) {
         currentProject.tasks.forEach(task => {
             const newTask = document.createElement("div")
-            const container = document.querySelector(".content");
+            const container = document.querySelector(".task-container");
             const deleteButton = document.createElement('button')
             deleteButton.className = "delete-todo"
             deleteButton.innerHTML = "remove"

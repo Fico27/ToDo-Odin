@@ -16,7 +16,7 @@ function newTask(name, date, priority){
     return {
         name: name,
         id: crypto.randomUUID(),
-        Date: date,
+        date: date,
         priority: priority
     }
 }

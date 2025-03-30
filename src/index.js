@@ -86,7 +86,7 @@ function render() {
         const deleteButtonProject = document.createElement("button")
         deleteButtonProject.innerHTML = "Delete"
         deleteButtonProject.dataset.projectId = project.id
-        projectLI.innerHTML = project.name
+        projectLI.innerHTML = ` ${project.name}`
         projectUL.appendChild(projectLI)
         projectLI.appendChild(deleteButtonProject)
         projectLI.addEventListener('click', () => projectSelector(project))
@@ -94,34 +94,60 @@ function render() {
         deleteButtonProject.addEventListener('click', (e) => {
             e.stopPropagation()
             projectList = projectList.filter(project => project.id !== e.target.dataset.projectId)
-            render();
+            
             resetTaskDisplay();
+            render();
         });
+        
     })
 
-
-
-    if (currentProject) {
+    const projectContainer = document.querySelector(".content");
+    const taskContainer = document.querySelector(".task-container");
+    if (!currentProject || projectList.length === 0) {
+        // Clear .content entirely when no projects or no current project
+        projectContainer.innerHTML = '';
+        projectContainer.appendChild(taskContainer); // Reattach task-container
+    } else {
         currentProject.tasks.forEach(task => {
-            const newTask = document.createElement("div")
-            const container = document.querySelector(".task-container");
-            const deleteButton = document.createElement('button')
-            deleteButton.className = "delete-todo"
-            deleteButton.innerHTML = "remove"
+            const newTask = document.createElement("div");
+            const deleteButton = document.createElement('button');
+            deleteButton.className = "delete-todo";
+            deleteButton.innerHTML = "remove";
             deleteButton.dataset.taskId = task.id;
-            newTask.innerHTML = `${task.name} Due date: ${task.date} Priority: ${task.priority}`
-            newTask.appendChild(deleteButton)
-            container.appendChild(newTask)
-
+            newTask.innerHTML = `<span>${task.name}</span> <span>Due date:</span> ${task.date} <span>Priority:</span> ${task.priority}`;
+            newTask.appendChild(deleteButton);
+            taskContainer.appendChild(newTask);
             deleteButton.addEventListener('click', (e) => {
-
-                currentProject.tasks = currentProject.tasks.filter(task => task.id !== e.target.dataset.taskId)
+                e.stopPropagation();
+                currentProject.tasks = currentProject.tasks.filter(task => task.id !== e.target.dataset.taskId);
                 resetTaskDisplay();
-                displayProject(currentProject)
+                displayProject(currentProject);
                 render();
             });
-        })
+        });
     }
+
+    // if (currentProject) {
+    //     currentProject.tasks.forEach(task => {
+    //         const newTask = document.createElement("div")
+    //         const container = document.querySelector(".task-container");
+    //         const deleteButton = document.createElement('button')
+    //         deleteButton.className = "delete-todo"
+    //         deleteButton.innerHTML = "remove"
+    //         deleteButton.dataset.taskId = task.id;
+    //         newTask.innerHTML = `${task.name} Due date: ${task.date} Priority: ${task.priority}`
+    //         newTask.appendChild(deleteButton)
+    //         container.appendChild(newTask)
+
+    //         deleteButton.addEventListener('click', (e) => {
+
+    //             currentProject.tasks = currentProject.tasks.filter(task => task.id !== e.target.dataset.taskId)
+    //             resetTaskDisplay();
+    //             displayProject(currentProject)
+    //             render();
+    //         });
+    //     })
+    // }
 
 }
 

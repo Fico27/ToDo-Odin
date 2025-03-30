@@ -5,13 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Be is TO DO!</title>
+    
 <script defer src="main.js"></script></head>
 
 <body>
     <div class="mainContainer">
-        <div class="header"></div>
-        <div class="sidebar"></div>
-        <div class="content"></div>
+        <div class="header">
+            <h1>To Be is To DO!</h1>
+        </div>
+        <div class="sidebar">
+            <button class="newProjectButton">New Project</button>
+
+            <ul class="project-list">
+
+            </ul>
+        </div>
+        <div class="content">
+            <!-- <button class="new-task-button">Add Task</button> -->
+             <div class="task-container"></div>
+        </div>
+    </div>
+
+    <div class="form" style='display: none'>
+        <form action="#" class="new-project-class">
+            <h3>Name Your Project</h3>
+            <label for="new-project-name">
+                <input type="text" id = 'new-project-name' name= "new-project-name" required>
+            </label>
+            <button type="submit" class="project-form-submit">Create Project</button>
+            <button type="button" class="project-form-close">Close</button>
+        </form>
+    </div>
+
+    <div class="task-form"  style='display: none'>
+        <form action="#" class="new-task-class" id="task-form">
+            <h3>Add Task Name</h3>
+            <label for="new-task-name"> Task name: 
+                <input type="text" id = 'new-task-name' name= "new-task-name" required>
+            </label>
+            <label for="new-task-date"> Due Date: 
+                <input type="date" id = 'new-task-date' name= "new-task-date" required>
+            </label>
+            <label for="new-task-priority"> Priority:
+                <!-- Make selection -->
+
+                <select name="new-task-priority" id="new-task-priority" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <!-- <input type="se" id = 'new-task-priority' name= "new-task-priority" required> -->
+            </label>
+            <button type="submit" class="task-form-submit">Add Task</button>
+            <button type="button" class="task-form-close">Close</button>
+        </form>
     </div>
 </body>
 

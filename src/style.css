@@ -63,17 +63,12 @@ body {
 .task-form {
 
     position: fixed;
-    /* Keeps it in place even when scrolling */
     top: 0;
     left: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     background-color: rgba(0, 0, 0, 0.5);
-    /* Semi-transparent black background */
     z-index: 9998;
-    /* Ensures it stays on top of other elements */
 }
 
 
@@ -90,12 +85,10 @@ li {
     display: flex;
     justify-content: space-between;
     margin: 10px 15px;
-    /* padding-left: 20px; */
     padding: 10px 10px;
 
 }
 li:hover{
-    /* border: 1px solid #247BA0; */
     box-shadow: 1px 1px 1px 2px #FFFCFF;
     border-radius: 10px;
 }
@@ -155,7 +148,6 @@ li>button {
 .task-container {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     background-color: #FFFCFF;
     height: 80%;
     width: 40%;
@@ -182,14 +174,3 @@ li>button {
     border-radius: 5px;
     font-weight: bold;
 }
-
-
-
-
-/* color pallet{
-    #50514F
-    #CBD4C2
-    #FFFCFF
-    #247BA0
-    #C3B299
-} */

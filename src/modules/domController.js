@@ -45,13 +45,6 @@ function displayProject(project) {
 
 function resetTaskDisplay() {
 
-    // while (taskContainer.firstChild) {
-    //     taskContainer.removeChild(taskContainer.firstChild)
-    // }
-
-    // while (projectContainer.firstChild) {
-    //     projectContainer.removeChild(projectContainer.firstChild)
-    // }
     const taskContainer = document.querySelector(".task-container");
     if (taskContainer) {
         while (taskContainer.firstChild) {

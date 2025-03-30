@@ -16,6 +16,18 @@ function getCurrentProject() {
     return currentProject;
 }
 
+function saveToLocalStorage() {
+    localStorage.setItem("todoProjects", JSON.stringify(projectList));
+}
+
+function loadFromLocalStorage() {
+    const saved = localStorage.getItem("todoProjects");
+    if (saved) {
+        projectList = JSON.parse(saved);
+    }
+    render();
+}
+
 
 // Adds a new project
 const newProjectButton = document.querySelector('.newProjectButton');
@@ -52,6 +64,7 @@ function addProject(name) {
     projectList.push(projectListItem)
     resetTaskDisplay()
     render()
+    saveToLocalStorage()
 
 }
 
@@ -69,6 +82,7 @@ function addTask(name, date, priority) {
     resetTaskDisplay();
     displayProject(selectedProject);
     render()
+    saveToLocalStorage()
 }
 
 
@@ -97,6 +111,7 @@ function render() {
             
             resetTaskDisplay();
             render();
+            saveToLocalStorage()
         });
         
     })
@@ -123,31 +138,13 @@ function render() {
                 resetTaskDisplay();
                 displayProject(currentProject);
                 render();
+                saveToLocalStorage()
             });
         });
     }
 
-    // if (currentProject) {
-    //     currentProject.tasks.forEach(task => {
-    //         const newTask = document.createElement("div")
-    //         const container = document.querySelector(".task-container");
-    //         const deleteButton = document.createElement('button')
-    //         deleteButton.className = "delete-todo"
-    //         deleteButton.innerHTML = "remove"
-    //         deleteButton.dataset.taskId = task.id;
-    //         newTask.innerHTML = `${task.name} Due date: ${task.date} Priority: ${task.priority}`
-    //         newTask.appendChild(deleteButton)
-    //         container.appendChild(newTask)
-
-    //         deleteButton.addEventListener('click', (e) => {
-
-    //             currentProject.tasks = currentProject.tasks.filter(task => task.id !== e.target.dataset.taskId)
-    //             resetTaskDisplay();
-    //             displayProject(currentProject)
-    //             render();
-    //         });
-    //     })
-    // }
 
 }
+
+loadFromLocalStorage()
 
